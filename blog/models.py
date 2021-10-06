@@ -1,6 +1,7 @@
 from django.db import models
 from autoslug import AutoSlugField
 from django.contrib.auth import get_user_model
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 User = get_user_model()
@@ -34,9 +35,9 @@ class Post(models.Model):                              # Blog-Post
     thumbnails = models.ImageField(upload_to="", null=True, blank=True)
     image_url = models.CharField(
         max_length=500, default=None, null=True, blank=True)
-    overview = models.TextField()
+    overview = RichTextField()
     date = models.DateTimeField(auto_now_add=True)
-    content = models.TextField()
+    content = RichTextField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category)
     published = models.BooleanField()
