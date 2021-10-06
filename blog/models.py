@@ -31,6 +31,7 @@ class Post(models.Model):                              # Blog-Post
     # generating a valid URL, generally using data already obtained.
     slug = AutoSlugField(populate_from='title')
 
+    thumbnails = models.ImageField(upload_to="", null=True, blank=True)
     overview = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
