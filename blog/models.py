@@ -32,7 +32,7 @@ class Post(models.Model):                              # Blog-Post
     slug = AutoSlugField(populate_from='title')
 
     thumbnails = models.ImageField(upload_to="", null=True, blank=True)
-    image_url = models.ImageField(
+    image_url = models.CharField(
         max_length=500, default=None, null=True, blank=True)
     overview = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
