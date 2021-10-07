@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'BL0G',
     'ckeditor',
     'ckeditor_uploader',
+    'hitcount',
+    'django_static_fontawesome',
 
 
 ]
