@@ -1,5 +1,5 @@
 from django.db import models
-from autoslug import AutoSlugField
+# from autoslug import AutoSlugField
 from django.contrib.auth import get_user_model
 from ckeditor.fields import RichTextField
 
@@ -37,12 +37,11 @@ class Post(models.Model):                              # Blog-Post
     title = models.CharField(max_length=200)
 
     # generating a valid URL, generally using data already obtained.
-    slug = AutoSlugField(populate_from='title')
+    slug = models.CharField(max_length=200)
 
     thumbnails = models.ImageField(upload_to="", null=True, blank=True)
     image_url = models.CharField(
         max_length=500, default=None, null=True, blank=True)
-    overview = RichTextField()
     date = models.DateTimeField(auto_now_add=True)
     content = RichTextField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
