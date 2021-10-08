@@ -56,11 +56,12 @@ class Post(models.Model):                              # Blog-Post
 
 
 class Comment(models.Model):
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name='comments')
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    body = RichTextField()
-    date = models.DateTimeField(auto_now_add=True)
+    body = models.TextField()
     active = models.BooleanField(default=False)
 
     class Meta:
